@@ -19,7 +19,7 @@
                 (file-name (git-file-name name version))
                 (sha256
                  (base32
-                  "1hhx8gmn81k8qrkx4p7ppinmygxga9fqffd626wkvhjgg2ky8lhs"))))
+                  "0wgrw89g8hpdlkp6gmfnijzi9954l6p5w0l57cyqv7lmz7rvxs4v"))))
       (build-system ant-build-system)
       (arguments
        `(#:jdk ,openjdk11
