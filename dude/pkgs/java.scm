@@ -24,7 +24,19 @@
       (arguments
        `(#:jdk ,openjdk11
          #:tests? #f
-         #:jar-name "swt.jar"))
+         #:phases
+         (modify-phases %standard-phases
+           (replace 'install
+             (lambda* (#:key inputs outputs #:allow-other-keys)
+               (let* ((share (string-append (assoc-ref outputs "out") "/share/java"))
+                      (jar-name "hello-world.jar")
+                      (jar (string-append ,tlatools
+                                          "/dist/" jar-name))
+                      ;; (java-cp (string-append share "/" jar-name))
+                      ;; (bin (string-append (assoc-ref outputs "out") "/bin"))
+                      ;; (java (search-input-file inputs "/bin/java")))
+                      )
+                 (install-file jar share)))))))
       (home-page "")
       (synopsis "")
       (description "")
