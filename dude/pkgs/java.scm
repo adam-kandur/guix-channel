@@ -1,9 +1,9 @@
 (define-module (dude pkgs java)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix packages)
-  #:use-module (gnu packages ant)
+  #:use-module (gnu packages java)
   #:use-module (guix git-download)
-  #:use-module (guix build-system java))
+  #:use-module (guix build-system ant))
 
 (define-public java-hello-world
   (let* ((revision "0")
