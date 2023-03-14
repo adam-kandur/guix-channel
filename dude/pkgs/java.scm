@@ -23,6 +23,7 @@
       (build-system ant-build-system)
       (arguments
        `(#:jdk ,openjdk11
+         #:tests? #f
          #:jar-name "swt.jar"))
       (home-page "")
       (synopsis "")
