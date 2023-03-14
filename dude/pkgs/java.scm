@@ -1,7 +1,7 @@
 (define-module (dude pkgs java)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix packages)
-  #:use-module (gnu packages java)
+  #:use-module (gnu packages ant)
   #:use-module (guix git-download)
   #:use-module (guix build-system java))
 
