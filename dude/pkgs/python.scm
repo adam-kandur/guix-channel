@@ -18,8 +18,6 @@
   #:use-module (gnu packages game-development))
 
 (define-public python-tcod
-  ;; todo
-  ;; python-httpx-0.23.3
   ;; named branch is outdated
   (let ((commit "d3419a5b4593c7df1580427fc07616d798c85856")
         (revision "1"))
@@ -41,8 +39,8 @@
       ;; tests fail for a strange reason
       ;; "ERROR docs/conf.py - FileNotFoundError",
       ;; but this file is in the checkout
-      (arguments
-       '(#:tests? #f))
+      ;; (arguments
+      ;;  '(#:tests? #f))
       (native-inputs
        (list sdl2
              python-pcpp
@@ -55,6 +53,8 @@
        (list python-numpy
              python-typing-extensions
              python-cffi))
+      (inputs
+       (list libtcod))
       (home-page "https://github.com/libtcod/python-tcod")
       (synopsis
        "This library is a Python cffi port of libtcod")
