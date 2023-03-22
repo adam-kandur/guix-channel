@@ -39,8 +39,8 @@
       ;; tests fail for a strange reason
       ;; "ERROR docs/conf.py - FileNotFoundError",
       ;; but this file is in the checkout
-      ;; (arguments
-      ;;  '(#:tests? #f))
+      (arguments
+       '(#:tests? #f))
       (native-inputs
        (list sdl2
              python-pcpp
@@ -56,10 +56,12 @@
              libtcod))
       (home-page "https://github.com/libtcod/python-tcod")
       (synopsis
-       "This library is a Python cffi port of libtcod")
+       "Python port of libtcod")
       (description
-       "A high-performance Python port of libtcod.
-Includes the libtcodpy module for backwards compatibility with older projects.")
+       "Python package which provides bindings to libtcod.  This allows Python
+users to use libtcod in their Python projects.  libtcod itself is a collection
+of tools and algorithms for developing traditional roguelikes.  Such as
+field-of-view, pathfinding, and a tile-based terminal emulator.")
       (license license:bsd-2))))
 
 (define-public python-telegram-bot
