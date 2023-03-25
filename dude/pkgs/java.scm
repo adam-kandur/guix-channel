@@ -38,6 +38,7 @@
                       (jar "hello-world.jar")
                       (java-cp (string-append share "/" jar)))
                  (install-file (string-append "build/jar/" jar) share)
+                 (mkdir-p bin)
                  (lambda _
                    (let* ((wrapper "java-hello")
                           (class "org.example.Main")
