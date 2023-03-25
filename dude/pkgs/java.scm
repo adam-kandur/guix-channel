@@ -25,19 +25,19 @@
        `(#:jar-name "hello-world.jar"
          #:jdk ,openjdk11
          #:tests? #f
-         ;; #:modules ((guix build ant-build-system)
-         ;;              (guix build utils)
-         ;;              (ice-9 match)
-         ;;              (srfi srfi-26))
-         ;; #:phases
-         ;; (modify-phases %standard-phases
-         ;;   (replace 'install
-         ;;     (lambda* (#:key inputs outputs #:allow-other-keys)
-         ;;       (let* ((share (string-append (assoc-ref outputs "out") "/share/java")))
-         ;;         (invoke "pwd")
-         ;;         (invoke "ls" "-al")
-         ;;         (install-file "build/jar/hello-world.jar" share)
-         ;;         ))))
+         #:modules ((guix build ant-build-system)
+                      (guix build utils)
+                      (ice-9 match)
+                      (srfi srfi-26))
+         #:phases
+         (modify-phases %standard-phases
+           (replace 'install
+             (lambda* (#:key inputs outputs #:allow-other-keys)
+               (let* ((share (string-append (assoc-ref outputs "out") "/share/java")))
+                 (invoke "pwd")
+                 (invoke "ls" "-al")
+                 (install-file jar-name share)
+                 ))))
          ))
       (home-page "")
       (synopsis "")
