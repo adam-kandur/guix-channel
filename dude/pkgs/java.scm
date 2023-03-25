@@ -33,10 +33,11 @@
          (modify-phases %standard-phases
            (replace 'install
              (lambda* (#:key inputs outputs #:allow-other-keys)
-               (let* ((share (string-append (assoc-ref outputs "out") "/share/java")))
+               (let* ((share (string-append (assoc-ref outputs "out") "/share/java"))
+                      (jar "/build/jar/hello-world.jar"))
                  (invoke "pwd")
                  (invoke "ls" "-al")
-                 (install-file jar-name share)
+                 (install-file jar share)
                  ))))
          ))
       (home-page "")
