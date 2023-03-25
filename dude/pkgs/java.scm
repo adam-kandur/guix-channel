@@ -48,7 +48,7 @@
                                 (string-append
                                  "#!/bin/sh\n"
                                  java " -cp " java-cp " " class " \"$@\""))))
-                           (chmod file #o755))))))))
+                           (chmod file #o755)))))))))
          ))
       (home-page "")
       (synopsis "")
