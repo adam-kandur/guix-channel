@@ -39,16 +39,16 @@
                       (java-cp (string-append share "/" jar)))
                  (install-file (string-append "build/jar/" jar) share)
                  (lambda _
-                   (let ((wrapper "java-hello")
-                         (class "org.example.Main")
-                         (file (string-append bin "/" wrapper))
-                         (with-output-to-file file
-                             (lambda _
-                               (display
-                                (string-append
-                                 "#!/bin/sh\n"
-                                 java " -cp " java-cp " " class " \"$@\""))))
-                           (chmod file #o755))))))))
+                   (let* ((wrapper "java-hello")
+                          (class "org.example.Main")
+                          (file (string-append bin "/" wrapper))
+                          (with-output-to-file file
+                            (lambda _
+                              (display
+                               (string-append
+                                "#!/bin/sh\n"
+                                java " -cp " java-cp " " class " \"$@\""))))
+                          (chmod file #o755))))))))
          ))
       (home-page "")
       (synopsis "")
