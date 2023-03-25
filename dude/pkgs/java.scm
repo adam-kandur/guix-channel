@@ -22,21 +22,21 @@
                   "0wgrw89g8hpdlkp6gmfnijzi9954l6p5w0l57cyqv7lmz7rvxs4v"))))
       (build-system ant-build-system)
       (arguments
-       `(#:jar-name "hello-world.jar"
+       `(;; #:jar-name "hello-world.jar"
          #:jdk ,openjdk11
          #:tests? #f
-         ;; #:modules ((guix build ant-build-system)
-         ;;              (guix build utils)
-         ;;              (ice-9 match)
-         ;;              (srfi srfi-26))
-         ;; #:phases
-         ;; (modify-phases %standard-phases
-         ;;   (replace 'install
-         ;;     (lambda* (#:key inputs outputs #:allow-other-keys)
-         ;;       (let* ((share (string-append (assoc-ref outputs "out") "/share/java")))
-         ;;         (invoke "pwd")
-         ;;         (invoke "ls" "-al")
-         ;;         ))))
+         #:modules ((guix build ant-build-system)
+                      (guix build utils)
+                      (ice-9 match)
+                      (srfi srfi-26))
+         #:phases
+         (modify-phases %standard-phases
+           (replace 'install
+             (lambda* (#:key inputs outputs #:allow-other-keys)
+               (let* ((share (string-append (assoc-ref outputs "out") "/share/java")))
+                 (invoke "pwd")
+                 (invoke "ls" "-al")
+                 ))))
          ))
       (home-page "")
       (synopsis "")
