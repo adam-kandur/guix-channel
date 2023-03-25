@@ -37,19 +37,20 @@
                       (bin (string-append (assoc-ref outputs "out") "/bin"))
                       (jar "hello-world.jar")
                       (java-cp (string-append share "/" jar))
-                      (java (search-input-file inputs "/bin/java")))
+                      (java (search-input-file inputs "/bin/java"))
+
+                      (wrapper "java-hello")
+                        (class "org.example.Main")
+                        (file (string-append bin "/" wrapper)))
                  (install-file (string-append "build/jar/" jar) share)
                  (mkdir-p bin)
-                 (let* ((wrapper "java-hello")
-                        (class "org.example.Main")
-                        (file (string-append bin "/" wrapper))
-                        (with-output-to-file file
-                          (lambda _
-                            (display
-                             (string-append
-                              "#!/bin/sh\n"
-                              java " -cp " java-cp " " class " \"$@\""))))
-                        (chmod file #o755)))))))
+                 (with-output-to-file file
+                   (lambda _
+                     (display
+                      (string-append
+                       "#!/bin/sh\n"
+                       java " -cp " java-cp " " class " \"$@\""))))
+                 (chmod file #o755)))))
                  ;; (for-each
                  ;;  (match-lambda
                  ;;    ((wrapper . class)
