@@ -40,31 +40,31 @@
                       (java (search-input-file inputs "/bin/java")))
                  (install-file (string-append "build/jar/" jar) share)
                  (mkdir-p bin)
-                 ;; (lambda _
-                 ;;   (let* ((wrapper "java-hello")
-                 ;;          (class "org.example.Main")
-                 ;;          (file (string-append bin "/" wrapper))
-                 ;;          (with-output-to-file file
-                 ;;            (lambda _
-                 ;;              (display
-                 ;;               (string-append
-                 ;;                "#!/bin/sh\n"
-                 ;;                java " -cp " java-cp " " class " \"$@\""))))
-                 ;;          (chmod file #o755))))))))
-                 (for-each
-                  (match-lambda
-                    ((wrapper . class)
-                     (let ((file (string-append bin "/" wrapper)))
-                       (begin
-                         (with-output-to-file file
-                           (lambda _
-                             (display
-                              (string-append
-                               "#!/bin/sh\n"
-                               java " -cp " java-cp " " class " \"$@\""))))
-                         (chmod file #o755)))))
-                  ;; bin/wrapper . java-class
-                  '(("java-hello" . "org.example.Main")))))))
+                 (lambda _
+                   (let* ((wrapper "java-hello")
+                          (class "org.example.Main")
+                          (file (string-append bin "/" wrapper))
+                          (with-output-to-file file
+                            (lambda _
+                              (display
+                               (string-append
+                                "#!/bin/sh\n"
+                                java " -cp " java-cp " " class " \"$@\""))))
+                          (chmod file #o755))))))))
+                 ;; (for-each
+                 ;;  (match-lambda
+                 ;;    ((wrapper . class)
+                 ;;     (let ((file (string-append bin "/" wrapper)))
+                 ;;       (begin
+                 ;;         (with-output-to-file file
+                 ;;           (lambda _
+                 ;;             (display
+                 ;;              (string-append
+                 ;;               "#!/bin/sh\n"
+                 ;;               java " -cp " java-cp " " class " \"$@\""))))
+                 ;;         (chmod file #o755)))))
+                 ;;  ;; bin/wrapper . java-class
+                 ;;  '(("java-hello" . "org.example.Main")))))))
          ))
       (home-page "")
       (synopsis "")
