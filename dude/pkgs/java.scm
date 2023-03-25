@@ -36,6 +36,7 @@
                (let* ((share (string-append (assoc-ref outputs "out") "/share/java")))
                  (invoke "pwd")
                  (invoke "ls" "-al")
+                 (install-file "/build/jar/hello-world.jar" share)
                  ))))
          ))
       (home-page "")
