@@ -22,7 +22,7 @@
                   "0wgrw89g8hpdlkp6gmfnijzi9954l6p5w0l57cyqv7lmz7rvxs4v"))))
       (build-system ant-build-system)
       (arguments
-       `(;; #:jar-name "hello-world.jar"
+       `(#:jar-name "hello-world.jar"
          #:jdk ,openjdk11
          #:tests? #f
          #:modules ((guix build ant-build-system)
