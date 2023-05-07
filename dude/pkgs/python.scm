@@ -23,7 +23,8 @@
   #:use-module (gnu packages compression)
   #:use-module (gnu packages autotools)
   #:use-module (gnu packages python)
-  #:use-module (gnu packages pkg-config))
+  #:use-module (gnu packages pkg-config)
+  #:use-module (gnu packages stb))
 
 (define-public python-tcod
   ;; named branch is outdated
