@@ -5,6 +5,7 @@
   #:use-module (guix git-download)
   #:use-module (guix build-system python)
   #:use-module (guix build-system pyproject)
+  #:use-module (guix build-system gnu)
   #:use-module (gnu packages sdl)
   #:use-module (gnu packages c)
   #:use-module (gnu packages python-xyz)
@@ -293,7 +294,7 @@ field-of-view, pathfinding, and a tile-based terminal emulator.")
     (source (origin
               (method git-fetch)
               (uri (git-reference
-                    (url "https://github.com/libtcod/libtcod")
+                    (url "https://github.com/adam-kandur/libtcod")
                     (commit version)))
               (file-name (git-file-name name version))
               (sha256
