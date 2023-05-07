@@ -22,7 +22,8 @@
   #:use-module (gnu packages textutils)
   #:use-module (gnu packages compression)
   #:use-module (gnu packages autotools)
-  #:use-module (gnu packages python))
+  #:use-module (gnu packages python)
+  #:use-module (gnu packages pkg-config))
 
 (define-public python-tcod
   ;; named branch is outdated
