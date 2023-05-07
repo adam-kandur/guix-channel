@@ -309,32 +309,32 @@ field-of-view, pathfinding, and a tile-based terminal emulator.")
                (base32
                 "08qzmcfgldadlbvz53p20pzlq90qrp9m53lbvrbv8v45fq0bx7iq"))
               (modules '((guix build utils)))
-              ;; (snippet '(begin
-              ;;             (delete-file-recursively "src/vendor/utf8proc")
-              ;;             (delete-file-recursively "src/vendor/zlib")
-              ;;             (delete-file "src/vendor/stb_truetype.h")
-              ;;             (delete-file "src/vendor/stb_sprintf.h")
-              ;;             (delete-file "src/vendor/lodepng.cpp")
-              ;;             (delete-file "src/vendor/lodepng.h")
+              (snippet '(begin
+                          (delete-file-recursively "src/vendor/utf8proc")
+                          (delete-file-recursively "src/vendor/zlib")
+                          (delete-file "src/vendor/stb_truetype.h")
+                          (delete-file "src/vendor/stb_sprintf.h")
+                          (delete-file "src/vendor/lodepng.c")
+                          (delete-file "src/vendor/lodepng.h")
 
-              ;;             (substitute* "buildsys/autotools/sources.am"
-              ;;               (("\\.\\./\\.\\./src/vendor/lodepng\\.cpp \\\\\n") "")
-              ;;               (("\\.\\./\\.\\./src/vendor/stb\\.c \\\\")
-              ;;                "../../src/vendor/stb.c")
-              ;;               (("\\.\\./\\.\\./src/vendor/utf8proc/utf8proc\\.c") ""))
+                          (substitute* "buildsys/autotools/sources.am"
+                            (("\\.\\./\\.\\./src/vendor/lodepng\\.cpp \\\\\n") "")
+                            (("\\.\\./\\.\\./src/vendor/stb\\.c \\\\")
+                             "../../src/vendor/stb.c")
+                            (("\\.\\./\\.\\./src/vendor/utf8proc/utf8proc\\.c") ""))
 
-              ;;             (substitute* "src/libtcod/sys_sdl_img_png.cpp"
-              ;;               (("\\.\\./vendor/") ""))
+                          (substitute* "src/libtcod/sys_sdl_img_png.cpp"
+                            (("\\.\\./vendor/") ""))
 
-              ;;             (substitute* '("src/libtcod/color/canvas.cpp"
-              ;;                            "src/libtcod/sys_sdl_img_png.cpp"
-              ;;                            "src/libtcod/tileset/truetype.cpp"
-              ;;                            "src/libtcod/tileset/tilesheet.cpp")
-              ;;               (("\\.\\./\\.\\./vendor/") ""))
+                          (substitute* '("src/libtcod/color/canvas.cpp"
+                                         "src/libtcod/sys_sdl_img_png.cpp"
+                                         "src/libtcod/tileset/truetype.cpp"
+                                         "src/libtcod/tileset/tilesheet.cpp")
+                            (("\\.\\./\\.\\./vendor/") ""))
 
-              ;;             (substitute* "src/libtcod/console/printing.cpp"
-              ;;               (("\\.\\./\\.\\./vendor/utf8proc/") ""))
-              ;;             #t))
+                          (substitute* "src/libtcod/console/printing.cpp"
+                            (("\\.\\./\\.\\./vendor/utf8proc/") ""))
+                          #t))
               ))
     (build-system gnu-build-system)
     (arguments
