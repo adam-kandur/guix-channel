@@ -285,3 +285,71 @@ field-of-view, pathfinding, and a tile-based terminal emulator.")
     (description
      "")
     (license #f)))
+
+(define-public libtcod
+  (package
+    (name "dude-libtcod")
+    (version "1.15.1")
+    (source (origin
+              (method git-fetch)
+              (uri (git-reference
+                    (url "https://github.com/libtcod/libtcod")
+                    (commit version)))
+              (file-name (git-file-name name version))
+              (sha256
+               (base32
+                "0pzr8ajmbqvh43ldjajx962xirj3rf8ayh344p6mqlrmb8gxrfr5"))
+              (modules '((guix build utils)))
+              (snippet '(begin
+                          (delete-file-recursively "src/vendor/utf8proc")
+                          (delete-file-recursively "src/vendor/zlib")
+                          (delete-file "src/vendor/stb_truetype.h")
+                          (delete-file "src/vendor/stb_sprintf.h")
+                          (delete-file "src/vendor/lodepng.cpp")
+                          (delete-file "src/vendor/lodepng.h")
+
+                          (substitute* "buildsys/autotools/sources.am"
+                            (("\\.\\./\\.\\./src/vendor/lodepng\\.cpp \\\\\n") "")
+                            (("\\.\\./\\.\\./src/vendor/stb\\.c \\\\")
+                             "../../src/vendor/stb.c")
+                            (("\\.\\./\\.\\./src/vendor/utf8proc/utf8proc\\.c") ""))
+
+                          (substitute* "src/libtcod/sys_sdl_img_png.cpp"
+                            (("\\.\\./vendor/") ""))
+
+                          (substitute* '("src/libtcod/color/canvas.cpp"
+                                         "src/libtcod/sys_sdl_img_png.cpp"
+                                         "src/libtcod/tileset/truetype.cpp"
+                                         "src/libtcod/tileset/tilesheet.cpp")
+                            (("\\.\\./\\.\\./vendor/") ""))
+
+                          (substitute* "src/libtcod/console/printing.cpp"
+                            (("\\.\\./\\.\\./vendor/utf8proc/") ""))
+                          #t))))
+    (build-system gnu-build-system)
+    (arguments
+     `(#:configure-flags '("--with-gnu-ld"
+                           "LIBS=-lutf8proc -llodepng")
+       #:phases
+       (modify-phases %standard-phases
+         (add-after 'unpack 'change-to-build-dir
+           (lambda _
+             (chdir "buildsys/autotools")
+             (patch-shebang "get_version.py"))))))
+    (native-inputs
+     (list autoconf
+           automake
+           libtool
+           python
+           pkg-config
+           stb-sprintf
+           stb-truetype))
+    (inputs
+     (list lodepng sdl2 utf8proc zlib))
+    (home-page "https://github.com/libtcod/libtcod")
+    (synopsis "Library specifically designed for writing roguelikes")
+    (description
+     "libtcod is a fast, portable and uncomplicated API for roguelike
+developers providing an advanced true color console, input, and lots of other
+utilities frequently used in roguelikes.")
+    (license license:bsd-3)))
