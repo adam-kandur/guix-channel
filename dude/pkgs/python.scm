@@ -16,7 +16,9 @@
   #:use-module (gnu packages libffi)
   #:use-module (gnu packages check)
   #:use-module (gnu packages time)
-  #:use-module (gnu packages game-development))
+  #:use-module (gnu packages game-development)
+  ;; libtcode
+  #:use-module (gnu packages image))
 
 (define-public python-tcod
   ;; named branch is outdated
@@ -290,11 +292,11 @@ field-of-view, pathfinding, and a tile-based terminal emulator.")
 (define-public libtcod
   (package
     (name "dude-libtcod")
-    (version "1.15.1")
+    (version "1.15.2")
     (source (origin
               (method git-fetch)
               (uri (git-reference
-                    (url "https://github.com/adam-kandur/libtcod")
+                    (url "https://github.com/libtcod/libtcod")
                     (commit version)))
               (file-name (git-file-name name version))
               (sha256
