@@ -50,10 +50,10 @@
              python-pytest-benchmark
              python-pytest-cov))
       (propagated-inputs
-       (list python-numpy
+       (list libtcod
+             python-numpy
              python-typing-extensions
-             python-cffi
-             libtcod))
+             python-cffi))
       (home-page "https://github.com/libtcod/python-tcod")
       (synopsis
        "Python port of libtcod")
