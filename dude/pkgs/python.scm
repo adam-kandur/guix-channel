@@ -298,7 +298,7 @@ field-of-view, pathfinding, and a tile-based terminal emulator.")
 (define-public libtcod
   (package
     (name "dude-libtcod")
-    (version "1.15.2")
+    (version "1.23.1")
     (source (origin
               (method git-fetch)
               (uri (git-reference
