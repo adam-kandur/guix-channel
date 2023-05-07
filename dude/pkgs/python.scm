@@ -19,7 +19,8 @@
   #:use-module (gnu packages game-development)
   ;; libtcode
   #:use-module (gnu packages image)
-  #:use-module (gnu packages textutils))
+  #:use-module (gnu packages textutils)
+  #:use-module (gnu packages compression))
 
 (define-public python-tcod
   ;; named branch is outdated
