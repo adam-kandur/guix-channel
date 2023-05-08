@@ -323,11 +323,11 @@ field-of-view, pathfinding, and a tile-based terminal emulator.")
                              "../../src/vendor/stb.c")
                             (("\\.\\./\\.\\./src/vendor/utf8proc/utf8proc\\.c") ""))
 
-                          (substitute* "src/libtcod/sys_sdl_img_png.cpp"
+                          (substitute* "src/libtcod/sys_sdl_img_png.c"
                             (("\\.\\./vendor/") ""))
 
                           (substitute* '("src/libtcod/color/canvas.cpp"
-                                         "src/libtcod/sys_sdl_img_png.cpp"
+                                         "src/libtcod/sys_sdl_img_png.c"
                                          "src/libtcod/tileset/truetype.cpp"
                                          "src/libtcod/tileset/tilesheet.cpp")
                             (("\\.\\./\\.\\./vendor/") ""))
