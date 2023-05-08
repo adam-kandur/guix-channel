@@ -314,8 +314,6 @@ field-of-view, pathfinding, and a tile-based terminal emulator.")
                           (delete-file-recursively "src/vendor/utf8proc")
                           (delete-file-recursively "src/vendor/zlib")
                           (delete-file "src/vendor/stb_truetype.h")
-                          (delete-file "src/vendor/lodepng.c")
-                          (delete-file "src/vendor/lodepng.h")
                           #t))))
     (build-system gnu-build-system)
     (arguments
