@@ -326,13 +326,11 @@ field-of-view, pathfinding, and a tile-based terminal emulator.")
                           (substitute* "src/libtcod/sys_sdl_img_png.c"
                             (("\\.\\./vendor/") ""))
 
-                          (substitute* '("src/libtcod/color/canvas.cpp"
-                                         "src/libtcod/sys_sdl_img_png.c"
-                                         "src/libtcod/tileset/truetype.cpp"
-                                         "src/libtcod/tileset/tilesheet.cpp")
+                          (substitute* '("src/libtcod/sys_sdl_img_png.c"
+                                         "src/libtcod/tileset_truetype.c")
                             (("\\.\\./\\.\\./vendor/") ""))
 
-                          (substitute* "src/libtcod/console/printing.cpp"
+                          (substitute* "src/libtcod/console_printing.c"
                             (("\\.\\./\\.\\./vendor/utf8proc/") ""))
                           #t))))
     (build-system gnu-build-system)
