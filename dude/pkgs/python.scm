@@ -307,7 +307,7 @@ field-of-view, pathfinding, and a tile-based terminal emulator.")
               (file-name (git-file-name name version))
               (sha256
                (base32
-                "0pzr8ajmbqvh43ldjajx962xirj3rf8ayh344p6mqlrmb8gxrfr5"))
+                "08qzmcfgldadlbvz53p20pzlq90qrp9m53lbvrbv8v45fq0bx7iq"))
               (modules '((guix build utils)))
               (snippet '(begin
                           (delete-file-recursively "src/vendor/utf8proc")
