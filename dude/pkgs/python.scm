@@ -310,10 +310,10 @@ field-of-view, pathfinding, and a tile-based terminal emulator.")
                 "08qzmcfgldadlbvz53p20pzlq90qrp9m53lbvrbv8v45fq0bx7iq"))
               (modules '((guix build utils)))
               (snippet '(begin
+                          ;; delete dependencies packed with the project
                           (delete-file-recursively "src/vendor/utf8proc")
                           (delete-file-recursively "src/vendor/zlib")
                           (delete-file "src/vendor/stb_truetype.h")
-                          (delete-file "src/vendor/stb_sprintf.h")
                           (delete-file "src/vendor/lodepng.c")
                           (delete-file "src/vendor/lodepng.h")
 
