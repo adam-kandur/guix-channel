@@ -316,22 +316,6 @@ field-of-view, pathfinding, and a tile-based terminal emulator.")
                           (delete-file "src/vendor/stb_truetype.h")
                           (delete-file "src/vendor/lodepng.c")
                           (delete-file "src/vendor/lodepng.h")
-
-                          (substitute* "buildsys/autotools/sources.am"
-                            (("\\.\\./\\.\\./src/vendor/lodepng\\.cpp \\\\\n") "")
-                            (("\\.\\./\\.\\./src/vendor/stb\\.c \\\\")
-                             "../../src/vendor/stb.c")
-                            (("\\.\\./\\.\\./src/vendor/utf8proc/utf8proc\\.c") ""))
-
-                          (substitute* "src/libtcod/sys_sdl_img_png.c"
-                            (("\\.\\./vendor/") ""))
-
-                          (substitute* '("src/libtcod/sys_sdl_img_png.c"
-                                         "src/libtcod/tileset_truetype.c")
-                            (("\\.\\./\\.\\./vendor/") ""))
-
-                          (substitute* "src/libtcod/console_printing.c"
-                            (("\\.\\./\\.\\./vendor/utf8proc/") ""))
                           #t))))
     (build-system gnu-build-system)
     (arguments
