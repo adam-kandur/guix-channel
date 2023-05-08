@@ -323,6 +323,10 @@ field-of-view, pathfinding, and a tile-based terminal emulator.")
                              "../../src/vendor/stb.c")
                             (("\\.\\./\\.\\./src/vendor/utf8proc/utf8proc\\.c") ""))
 
+                          (substitute* "buildsys/autotools/Makefile.am"
+                            (("-I$(top_srcdir)/../../src/vendor \\") "")
+                            (("-I$(top_srcdir)/../../src/vendor/utf8proc \\") ""))
+
                           ;; (substitute* "src/libtcod/sys_sdl_img_png.cpp"
                           ;;   (("\\.\\./vendor/") ""))
 
