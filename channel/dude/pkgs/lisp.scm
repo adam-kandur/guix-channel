@@ -22,6 +22,13 @@
         (base32
          "1hwgl43mjwzvbcamdiqs8jv8961mp3hiar15cjcz3xwc5bdqwvi2"))))
     (build-system asdf-build-system/sbcl)
+    (arguments
+     `(#:phases
+       (modify-phases %standard-phases
+         (add-after 'unpack 'cd-lem
+           (lambda _
+             (chdir "lem")
+             #t)))))
     ;; (inputs
     ;;  (list sbcl-alexandria sbcl-anaphora))
     ;; (native-inputs
