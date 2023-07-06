@@ -27,7 +27,7 @@
        (modify-phases %standard-phases
          (add-after 'unpack 'cd-lem
            (lambda _
-             (chdir "lem")
+             (chdir "src")
              #t)))))
     ;; (inputs
     ;;  (list sbcl-alexandria sbcl-anaphora))
