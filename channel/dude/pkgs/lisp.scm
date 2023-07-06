@@ -20,7 +20,7 @@
        (file-name (git-file-name "lem" version))
        (sha256
         (base32
-         "08iv7b4m0hh7qx2cvq4f510nrgdld0vicnvmqsh9w0fgrcgmyg4k"))))
+         "1hwgl43mjwzvbcamdiqs8jv8961mp3hiar15cjcz3xwc5bdqwvi2"))))
     (build-system asdf-build-system/sbcl)
     ;; (inputs
     ;;  (list sbcl-alexandria sbcl-anaphora))
