@@ -28,7 +28,8 @@
      (list sbcl-alexandria
            sbcl-trivial-gray-streams
            sbcl-trivial-types
-           sbcl-trivial-types))
+           sbcl-trivial-types
+           sbcl-cl-ppcre))
     ;; (inputs
     ;;  (list sbcl-alexandria sbcl-anaphora))
     ;; (native-inputs
