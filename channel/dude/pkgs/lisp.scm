@@ -26,7 +26,9 @@
      `(#:asd-systems '("lem")))
     (inputs
      (list sbcl-alexandria
-           sbcl-trivial-gray-streams))
+           sbcl-trivial-gray-streams
+           sbcl-trivial-types
+           sbcl-trivial-types))
     ;; (inputs
     ;;  (list sbcl-alexandria sbcl-anaphora))
     ;; (native-inputs
