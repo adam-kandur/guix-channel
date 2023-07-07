@@ -23,7 +23,9 @@
          "1hwgl43mjwzvbcamdiqs8jv8961mp3hiar15cjcz3xwc5bdqwvi2"))))
     (build-system asdf-build-system/sbcl)
     (arguments
-      `(#:asd-systems '("lem")))
+     `(#:asd-systems '("lem")))
+    (inputs
+        (list sbcl-alexandria))
     ;; (inputs
     ;;  (list sbcl-alexandria sbcl-anaphora))
     ;; (native-inputs
