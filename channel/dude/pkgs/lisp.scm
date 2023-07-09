@@ -35,7 +35,8 @@
            sbcl-bordeaux-threads
            sbcl-yason
            sbcl-log4cl
-           sbcl-split-sequence))
+           sbcl-split-sequence
+           sbcl-dexador))
     ;; (inputs
     ;;  (list sbcl-alexandria sbcl-anaphora))
     ;; (native-inputs
