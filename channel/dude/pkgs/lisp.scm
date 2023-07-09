@@ -25,6 +25,8 @@
     (build-system asdf-build-system/sbcl)
     (arguments
      `(#:asd-systems '("lem")))
+    (native-inputs
+     (list sbcl-dexador))
     (inputs
      (list sbcl-alexandria
            sbcl-trivial-gray-streams
@@ -36,7 +38,7 @@
            sbcl-yason
            sbcl-log4cl
            sbcl-split-sequence
-           sbcl-dexador))
+           sbcl-closer-mop))
     ;; (inputs
     ;;  (list sbcl-alexandria sbcl-anaphora))
     ;; (native-inputs
