@@ -34,7 +34,8 @@
            sbcl-inquisitor
            sbcl-bordeaux-threads
            sbcl-yason
-           sbcl-log4cl))
+           sbcl-log4cl
+           sbcl-split-sequence))
     ;; (inputs
     ;;  (list sbcl-alexandria sbcl-anaphora))
     ;; (native-inputs
