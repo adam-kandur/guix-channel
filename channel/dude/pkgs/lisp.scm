@@ -30,7 +30,8 @@
            sbcl-trivial-gray-streams
            sbcl-trivial-types
            sbcl-trivial-types
-           sbcl-cl-ppcre))
+           sbcl-cl-ppcre
+           sbcl-inquisitor))
     ;; (inputs
     ;;  (list sbcl-alexandria sbcl-anaphora))
     ;; (native-inputs
