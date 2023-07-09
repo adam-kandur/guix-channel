@@ -33,7 +33,8 @@
            sbcl-cl-ppcre
            sbcl-inquisitor
            sbcl-bordeaux-threads
-           sbcl-yason))
+           sbcl-yason
+           sbcl-log4cl))
     ;; (inputs
     ;;  (list sbcl-alexandria sbcl-anaphora))
     ;; (native-inputs
