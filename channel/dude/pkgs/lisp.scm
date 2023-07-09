@@ -1,7 +1,7 @@
 (define-module (dude pkgs lisp)
   #:use-module (gnu packages)
   #:use-module (gnu packages lisp-xyz)
-  #:use-module (gnu packages lisp-check)
+  #:use-module (gnu packages lisp-checko)
   #:use-module (guix gexp)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix packages)
@@ -59,10 +59,12 @@
       (build-system asdf-build-system/sbcl)
       (arguments
        `(#:asd-systems '("inquisitor")))
+      (native-inputs
+       (list sbcl-prove))
       (inputs
        (list sbcl-alexandria
              sbcl-anaphora
-             sbcl-prove))
+             sbcl-babel))
       ;;        sbcl-trivial-gray-streams
       ;;        sbcl-trivial-types
       ;;        sbcl-trivial-types
