@@ -1,7 +1,7 @@
 (define-module (dude pkgs lisp)
   #:use-module (gnu packages)
   #:use-module (gnu packages lisp-xyz)
-  #:use-module (gnu packages lisp-checko)
+  #:use-module (gnu packages lisp-check)
   #:use-module (guix gexp)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix packages)
