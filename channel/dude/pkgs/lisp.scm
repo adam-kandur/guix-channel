@@ -58,8 +58,8 @@
       (build-system asdf-build-system/sbcl)
       (arguments
        `(#:asd-systems '("inquisitor")))
-      ;; (inputs
-      ;;  (list sbcl-alexandria
+      (inputs
+       (list sbcl-alexandria))
       ;;        sbcl-trivial-gray-streams
       ;;        sbcl-trivial-types
       ;;        sbcl-trivial-types
