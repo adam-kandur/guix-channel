@@ -59,7 +59,8 @@
       (arguments
        `(#:asd-systems '("inquisitor")))
       (inputs
-       (list sbcl-alexandria))
+       (list sbcl-alexandria
+             sbcl-anaphora))
       ;;        sbcl-trivial-gray-streams
       ;;        sbcl-trivial-types
       ;;        sbcl-trivial-types
