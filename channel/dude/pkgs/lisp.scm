@@ -32,7 +32,8 @@
            sbcl-trivial-types
            sbcl-cl-ppcre
            sbcl-inquisitor
-           sbcl-bordeaux-threads))
+           sbcl-bordeaux-threads
+           sbcl-yason))
     ;; (inputs
     ;;  (list sbcl-alexandria sbcl-anaphora))
     ;; (native-inputs
