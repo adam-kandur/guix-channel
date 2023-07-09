@@ -54,7 +54,7 @@
          (file-name (git-file-name name version))
          (sha256
           (base32
-           "1hwgl43mjwzvbcamdiqs8jv8961mp3hiar15cjcz3xwc5bdqwvi2"))))
+           "08rkmqnwlq6v84wcz9yp31j5lxrsy33kv3dh7n3ccsg4kc54slzw"))))
       (build-system asdf-build-system/sbcl)
       (arguments
        `(#:asd-systems '("inquisitor")))
