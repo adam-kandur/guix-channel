@@ -106,7 +106,7 @@
          (modify-phases %standard-phases
            (add-after 'unpack 'cd-sdl
              (lambda _
-               (chdir "lispbuilder-sdl")
+               (chdir "quicklisp")
                #t)))))
       (synopsis "")
       (description "")
