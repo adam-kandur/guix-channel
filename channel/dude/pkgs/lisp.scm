@@ -98,7 +98,7 @@
          (file-name (git-file-name name version))
          (sha256
           (base32
-           "08rkmqnwlq6v84wcz9yp31j5lxrsy33kv3dh7n3ccsg4kc54slzw"))))
+           "0rafdzp67mwq5s2qw8afhh29n4hv1l83qnmvy20s6l00ryxh0p8y"))))
       (build-system asdf-build-system/sbcl)
       (arguments
        `(#:asd-systems '("quicklisp")
