@@ -40,10 +40,6 @@
            sbcl-split-sequence
            sbcl-closer-mop
            sbcl-trivia))
-    ;; (inputs
-    ;;  (list sbcl-alexandria sbcl-anaphora))
-    ;; (native-inputs
-    ;;  (list sbcl-lift))
     (synopsis "")
     (description "")
     (home-page "")
@@ -82,6 +78,36 @@
       ;;  (list sbcl-alexandria sbcl-anaphora))
       ;; (native-inputs
       ;;  (list sbcl-lift))
+      (synopsis "")
+      (description "")
+      (home-page "")
+      (license #f))))
+
+(define-public sbcl-quicklisp
+  (let ((revision "0")
+        (commit "10b61e5220ba20bfdd88c1086d2523bd29414a8b"))
+    (package
+      (name "sbcl-quicklisp")
+      (version (git-version "0.1" revision commit))
+      (source
+       (origin
+         (method git-fetch)
+         (uri (git-reference
+               (url "https://github.com/quicklisp/quicklisp-client")
+               (commit commit)))
+         (file-name (git-file-name name version))
+         (sha256
+          (base32
+           "08rkmqnwlq6v84wcz9yp31j5lxrsy33kv3dh7n3ccsg4kc54slzw"))))
+      (build-system asdf-build-system/sbcl)
+      (arguments
+       `(#:asd-systems '("quicklisp")
+         #:phases
+         (modify-phases %standard-phases
+           (add-after 'unpack 'cd-sdl
+             (lambda _
+               (chdir "lispbuilder-sdl")
+               #t)))))
       (synopsis "")
       (description "")
       (home-page "")
