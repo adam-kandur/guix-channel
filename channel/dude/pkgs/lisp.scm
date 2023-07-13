@@ -104,7 +104,7 @@
        `(;; #:asd-systems '("quicklisp")
          #:phases
          (modify-phases %standard-phases
-           (add-after 'unpack mv-setup-lisp-to-quicklisp
+           (add-after 'unpack 'mv-setup-lisp-to-quicklisp
              (lambda _
                (invoke "mv" "setup.lisp" "quicklisp/")))
            (add-after 'mv-setup-lisp-to-quicklisp 'cd-sdl
