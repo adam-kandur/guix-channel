@@ -118,11 +118,11 @@
               (lambda _
                 (substitute* "setuup.lisp"
                   (("\\(ensure-asdf-loaded\\)") "")
-  ;;                 (("(let ((asdf-init (probe-file (qmerge \"asdf-config/init.lisp\"))))
-  ;; (when asdf-init
-  ;;   (with-simple-restart (skip \"Skip loading ~S\" asdf-init)
-  ;;     (load asdf-init :verbose nil :print nil))))")
-  ;;                  (""))
+                  (("\\(let \\(\\(asdf-init \\(probe-file \\(qmerge \"asdf-config/init.lisp\"\\)\\)\\)\\)
+  \\(when asdf-init
+    \\(with-simple-restart \\(skip \"Skip loading ~S\" asdf-init\\)
+      \\(load asdf-init :verbose nil :print nil\\)\\)\\)\\)")
+                   "")
   ;;                 (("(push (qmerge \"quicklisp/\") asdf:*central-registry*)") (""))
   ;;                 (("(let ((*compile-print* nil)
   ;;     (*compile-verbose* nil)
