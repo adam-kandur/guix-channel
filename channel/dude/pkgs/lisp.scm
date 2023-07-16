@@ -114,6 +114,24 @@
              (lambda _
                (chdir "quicklisp")
                #t))
+           (add-after 'cd-sdl 'fix-setup
+              (lambda _
+                (substitute* "setuup.lisp"
+                  (("(ensure-asdf-loaded)") (""))
+                  (("(let ((asdf-init (probe-file (qmerge \"asdf-config/init.lisp\"))))
+  (when asdf-init
+    (with-simple-restart (skip \"Skip loading ~S\" asdf-init)
+      (load asdf-init :verbose nil :print nil))))")
+                   (""))
+                  (("(push (qmerge \"quicklisp/\") asdf:*central-registry*)") (""))
+                  (("(let ((*compile-print* nil)
+      (*compile-verbose* nil)
+      (*load-verbose* nil)
+      (*load-print* nil))
+  (asdf:oos 'asdf:load-op \"quicklisp\" :verbose nil))")
+                   (""))
+                  (("(quicklisp:setup)") (""))
+                  )))
            (replace 'build
              (lambda* (#:key outputs #:allow-other-keys)
                (let ((bin (string-append (assoc-ref outputs "out") "/bin")))
