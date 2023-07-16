@@ -124,7 +124,7 @@
                   "--no-userinit"
                   "--eval" "(require :asdf)"
                   "--eval" "(pushnew (uiop:getcwd) asdf:*central-registry*)"
-                  "--load" "../setuup.lisp")))))))
+                  "--load" "setuup.lisp")))))))
       (synopsis "")
       (description "")
       (home-page "")
