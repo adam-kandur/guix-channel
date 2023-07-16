@@ -109,21 +109,22 @@
                (setenv "HOME" "/tmp")))
            (add-after 'set-home 'mv-setup-lisp-to-quicklisp
              (lambda _
-               (invoke "mv" "setup.lisp" "quicklisp/")))
+               (invoke "mv" "setup.lisp" "quicklisp/setuup.lisp")))
            (add-after 'mv-setup-lisp-to-quicklisp 'cd-sdl
              (lambda _
                (chdir "quicklisp")
                #t))
            (replace 'build
-             (lambda _
-               (invoke
-                "sbcl"
-                "--noinform"
-                "--non-interactive"
-                "--no-userinit"
-                "--eval" "(require :asdf)"
-                "--eval" "(pushnew (uiop:getcwd) asdf:*central-registry*)"
-                "--load" "../setup.lisp"))))))
+             (lambda* (#:key outputs #:allow-other-keys)
+               (let ((bin (string-append (assoc-ref outputs "out") "/bin")))
+                 (invoke
+                  "sbcl"
+                  "--noinform"
+                  "--non-interactive"
+                  "--no-userinit"
+                  "--eval" "(require :asdf)"
+                  "--eval" "(pushnew (uiop:getcwd) asdf:*central-registry*)"
+                  "--load" "../setuup.lisp")))))))
       (synopsis "")
       (description "")
       (home-page "")
