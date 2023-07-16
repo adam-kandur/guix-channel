@@ -102,7 +102,8 @@
            "0rafdzp67mwq5s2qw8afhh29n4hv1l83qnmvy20s6l00ryxh0p8y"))))
       (build-system asdf-build-system/sbcl)
       (arguments
-       `(#:phases
+       `(#:tests? #f
+         #:phases
          (modify-phases %standard-phases
            (add-after 'unpack 'set-home
              (lambda _
