@@ -26,8 +26,7 @@
     (arguments
      `(#:asd-systems '("lem")))
     (native-inputs
-     (list sbcl-dexador
-           sbcl-quicklisp))
+     (list sbcl-dexador))
     (inputs
      (list sbcl-alexandria
            sbcl-trivial-gray-streams
@@ -40,7 +39,8 @@
            sbcl-log4cl
            sbcl-split-sequence
            sbcl-closer-mop
-           sbcl-trivia))
+           sbcl-trivia
+           sbcl-quicklisp))
     (synopsis "")
     (description "")
     (home-page "")
