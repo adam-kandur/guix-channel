@@ -39,7 +39,8 @@
            sbcl-log4cl
            sbcl-split-sequence
            sbcl-closer-mop
-           sbcl-trivia))
+           sbcl-trivia
+           sbcl-quicklisp))
     (synopsis "")
     (description "")
     (home-page "")
@@ -83,7 +84,6 @@
       (home-page "")
       (license #f))))
 
-;; cl-yxorp-cli
 (define-public sbcl-quicklisp
   (let ((revision "0")
         (commit "10b61e5220ba20bfdd88c1086d2523bd29414a8b"))
