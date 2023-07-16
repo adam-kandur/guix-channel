@@ -83,6 +83,7 @@
       (home-page "")
       (license #f))))
 
+;; cl-yxorp-cli
 (define-public sbcl-quicklisp
   (let ((revision "0")
         (commit "10b61e5220ba20bfdd88c1086d2523bd29414a8b"))
@@ -101,16 +102,28 @@
            "0rafdzp67mwq5s2qw8afhh29n4hv1l83qnmvy20s6l00ryxh0p8y"))))
       (build-system asdf-build-system/sbcl)
       (arguments
-       `(;; #:asd-systems '("quicklisp")
-         #:phases
+       `(#:phases
          (modify-phases %standard-phases
-           (add-after 'unpack 'mv-setup-lisp-to-quicklisp
+           (add-after 'unpack 'set-home
+             (lambda _
+               (setenv "HOME" "/tmp")))
+           (add-after 'set-home 'mv-setup-lisp-to-quicklisp
              (lambda _
                (invoke "mv" "setup.lisp" "quicklisp/")))
            (add-after 'mv-setup-lisp-to-quicklisp 'cd-sdl
              (lambda _
                (chdir "quicklisp")
-               #t)))))
+               #t))
+           (replace 'build
+             (lambda _
+               (invoke
+                "sbcl"
+                "--noinform"
+                "--non-interactive"
+                "--no-userinit"
+                "--eval" "(require :asdf)"
+                "--eval" "(pushnew (uiop:getcwd) asdf:*central-registry*)"
+                "--load" "../setup.lisp"))))))
       (synopsis "")
       (description "")
       (home-page "")
