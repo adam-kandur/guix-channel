@@ -28,7 +28,7 @@
        #:phases
        (modify-phases %standard-phases
          (replace 'build
-           (lambda* (#:key outputs #:allow-other-keys)
+           (lambda* (#:key inputs #:allow-other-keys)
              (let ((ql-setup (string-append
                               (assoc-ref inputs "sbcl-quicklisp")
                               "/share/common-lisp/sbcl/quicklisp/ql-setup.lisp")))
