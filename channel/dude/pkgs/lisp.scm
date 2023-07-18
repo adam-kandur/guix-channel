@@ -137,7 +137,7 @@
               (lambda _
                 (substitute* "ql-setup.lisp"
                   (("\\(ensure-asdf-loaded\\)") "")
-                  (("\\(let \\(\\(asdf-init \\(probe-file \\(qmerge \"asdf-config/init.lisp\"\\)\\)\\)\\)
+                  (("\\(let \\(\\(asdf-init \\(probe-file \\(qmerge \"asdf-config/init\\.lisp\"\\)\\)\\)\\)
   \\(when asdf-init
     \\(with-simple-restart \\(skip \"Skip loading ~S\" asdf-init\\)
       \\(load asdf-init :verbose nil :print nil\\)\\)\\)\\)")
