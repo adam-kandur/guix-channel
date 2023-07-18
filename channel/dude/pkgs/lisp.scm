@@ -26,19 +26,20 @@
     (arguments
      `(#:asd-systems '("lem")
        #:phases
-       (replace 'build
-         (lambda* (#:key outputs #:allow-other-keys)
-           (let ((ql-setup (string-append
-                            (assoc-ref inputs "sbcl-quicklisp")
-                            "/share/common-lisp/sbcl/quicklisp/ql-setup.lisp")))
-             (invoke
-              "sbcl"
-              "--noinform"
-              "--non-interactive"
-              "--no-userinit"
-              "--eval" "(require :asdf)"
-              "--eval" "(pushnew (uiop:getcwd) asdf:*central-registry*)"
-              "--load" ql-setup))))))
+       (modify-phases %standard-phases
+         (replace 'build
+           (lambda* (#:key outputs #:allow-other-keys)
+             (let ((ql-setup (string-append
+                              (assoc-ref inputs "sbcl-quicklisp")
+                              "/share/common-lisp/sbcl/quicklisp/ql-setup.lisp")))
+               (invoke
+                "sbcl"
+                "--noinform"
+                "--non-interactive"
+                "--no-userinit"
+                "--eval" "(require :asdf)"
+                "--eval" "(pushnew (uiop:getcwd) asdf:*central-registry*)"
+                "--load" ql-setup)))))))
     (native-inputs
      (list sbcl-dexador))
     (inputs
