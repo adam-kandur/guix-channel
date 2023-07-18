@@ -24,7 +24,21 @@
          "1hwgl43mjwzvbcamdiqs8jv8961mp3hiar15cjcz3xwc5bdqwvi2"))))
     (build-system asdf-build-system/sbcl)
     (arguments
-     `(#:asd-systems '("lem")))
+     `(#:asd-systems '("lem")
+       #:phases
+       (replace 'build
+         (lambda* (#:key outputs #:allow-other-keys)
+           (let ((ql-setup (string-append
+                            (assoc-ref inputs "sbcl-quicklisp")
+                            "/share/common-lisp/sbcl/quicklisp/ql-setup.lisp")))
+             (invoke
+              "sbcl"
+              "--noinform"
+              "--non-interactive"
+              "--no-userinit"
+              "--eval" "(require :asdf)"
+              "--eval" "(pushnew (uiop:getcwd) asdf:*central-registry*)"
+              "--load" ql-setup))))))
     (native-inputs
      (list sbcl-dexador))
     (inputs
@@ -110,14 +124,14 @@
                (setenv "HOME" "/tmp")))
            (add-after 'set-home 'mv-setup-lisp-to-quicklisp
              (lambda _
-               (invoke "mv" "setup.lisp" "quicklisp/setuup.lisp")))
+               (invoke "mv" "setup.lisp" "quicklisp/ql-setup.lisp")))
            (add-after 'mv-setup-lisp-to-quicklisp 'cd-sdl
              (lambda _
                (chdir "quicklisp")
                #t))
            (add-after 'cd-sdl 'fix-setup
               (lambda _
-                (substitute* "setuup.lisp"
+                (substitute* "ql-setup.lisp"
                   (("\\(ensure-asdf-loaded\\)") "")
                   (("\\(let \\(\\(asdf-init \\(probe-file \\(qmerge \"asdf-config/init.lisp\"\\)\\)\\)\\)
   \\(when asdf-init
@@ -143,7 +157,7 @@
                   "--no-userinit"
                   "--eval" "(require :asdf)"
                   "--eval" "(pushnew (uiop:getcwd) asdf:*central-registry*)"
-                  "--load" "setuup.lisp")))))))
+                  "--load" "ql-setup.lisp")))))))
       (synopsis "")
       (description "")
       (home-page "")
