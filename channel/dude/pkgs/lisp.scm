@@ -27,6 +27,9 @@
      `(#:asd-systems '("lem")
        #:phases
        (modify-phases %standard-phases
+         (add-after 'unpack 'set-home
+             (lambda _
+               (setenv "HOME" "/tmp")))
          (replace 'build
            (lambda* (#:key inputs #:allow-other-keys)
              (let ((ql-setup (string-append
