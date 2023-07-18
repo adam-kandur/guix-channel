@@ -142,7 +142,7 @@
   ;;   \\(with-simple-restart \\(skip \"Skip loading ~S\" asdf-init\\)
   ;;     \\(load asdf-init :verbose nil :print nil\\)\\)\\)\\)")
                   ;;                  "")
-                  (("\\(push \\(qmerge \"quicklisp/\"\\) asdf:*central-registry*\\)") "")
+                  (("\\(push \\(qmerge \"quicklisp/\"\\) asdf:\*central-registry\*\\)") "")
                   ;; (("\\(push \\(qmerge \"quicklisp/\"\\) asdf:*central-registry*\\)") "")
   ;;                 (("\\(let \\(\\(*compile-print* nil\\)
   ;;     \\(*compile-verbose* nil\\)
